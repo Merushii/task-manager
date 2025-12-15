@@ -9,6 +9,9 @@ function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
+  // maneja el envío del formulario de login
+  // evita que la página se recargue
+  // da la acción login con email y contraseña
   const handleSubmit = e => {
     e.preventDefault()
     dispatch(login({ email, password }))

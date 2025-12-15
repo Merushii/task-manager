@@ -22,10 +22,13 @@ function TaskList() {
   const [description, setDescription] = useState("")
   const [filter, setFilter] = useState("ALL")
 
+  // se ejecuta al montar el componente
+  // obtiene la lista de tareas desde el backend
   useEffect(() => {
     dispatch(fetchTasks())
   }, [dispatch])
 
+  // filtra las tareas según el estado seleccionado
   const filteredTasks = tasks.filter(task => {
     if (filter === "ALL") return true
     return task.status === filter
@@ -37,6 +40,8 @@ function TaskList() {
 
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-xl font-semibold">Task Manager</h1>
+
+          {/* cierra la sesión del usuario */}
           <button
             onClick={() => dispatch(logout())}
             className="text-red-500 text-sm"
@@ -45,7 +50,7 @@ function TaskList() {
           </button>
         </div>
 
-        {/* Filtro */}
+        {/* filtro de tareas por estado */}
         <select
           value={filter}
           onChange={e => setFilter(e.target.value)}
@@ -57,7 +62,7 @@ function TaskList() {
           <option value="COMPLETED">Completada</option>
         </select>
 
-        {/* Formulario */}
+        {/* formulario para crear una nueva tarea */}
         <input
           placeholder="Título"
           value={title}
@@ -72,6 +77,7 @@ function TaskList() {
           className="w-full mb-2 px-3 py-2 border rounded"
         />
 
+        {/* crea una nueva tarea y limpia los campos */}
         <button
           onClick={() => {
             if (!title || !description) return
@@ -84,7 +90,7 @@ function TaskList() {
           Agregar tarea
         </button>
 
-        {/* Lista */}
+        {/* lista de tareas */}
         <ul className="space-y-3">
           {filteredTasks.map(task => (
             <li key={task.id} className="border p-3 rounded">
@@ -94,6 +100,8 @@ function TaskList() {
               </p>
 
               <div className="flex gap-2 flex-wrap items-center">
+
+                {/* botones para cambiar el estado de la tarea */}
                 {Object.keys(STATUS).map(key => (
                   <button
                     key={key}
@@ -113,6 +121,7 @@ function TaskList() {
                   </button>
                 ))}
 
+                {/* elimina la tarea */}
                 <button
                   onClick={() => dispatch(deleteTask(task.id))}
                   className="text-xs text-red-500 ml-auto"
