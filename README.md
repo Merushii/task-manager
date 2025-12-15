@@ -139,6 +139,15 @@ http://localhost:5173
 5. Filtra las tareas usando el selector superior.
 6. Elimina una tarea cuando ya no sea necesaria.
 
+
+## 🔐 Credenciales de prueba
+
+```
+Email: admin@test.com
+Password: 123456
+```
+
 ## Autora
 
 **Mercedes Flores Moreno**
+
