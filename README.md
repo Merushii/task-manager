@@ -1,57 +1,153 @@
-# User List – Fullstack Test
+# Task Manager – Guía paso a paso
 
-Ejercicio de userList desarrollado con **Node.js + Express** en el backend y **React + Vite + Tailwind CSS** en el frontend.
+## Ejercicio 1:
+Desarrolla una API RESTful sencilla que permita crear, leer, actualizar y eliminar (CRUD) registros de "Tareas" (tasks). Cada tarea debe tener un id, titulo, descripcion y estado.
+Implementa validación de datos utilizando middleware.
 
-Crea un componente funcional llamado UserList que obtenga datos de una API y muestre una lista de usuarios con sus nombres y correos electrónicos.
-Implementa una funcionalidad de búsqueda que permita filtrar los usuarios por nombre.
 
 
-## 🧩 Tecnologías usadas
+## ¿Qué hace esta aplicación?
 
-### Backend
-- Node.js
-- Express
-- CORS
-- API REST
+Descripción del Proyecto:
+
+Desarrolla una aplicación web llamada "Task Manager" que permita a los usuarios gestionar sus tareas diarias. La aplicación debe incluir las siguientes características:
+Frontend
+Interfaz de Usuario:
+
+Página de inicio que muestre una lista de tareas.
+Formulario para agregar nuevas tareas con campos de titulo y descripcion.
+Opciones para editar y eliminar tareas existentes.
+Filtro para mostrar tareas por estado (Pendiente, En Progreso, Completada).
+
+Estado de la Aplicación:
+
+Utiliza Redux para manejar el estado global de las tareas.
+Implementa acciones para agregar, actualizar y eliminar tareas.
+Backend
+
+API:
+
+Endpoints para gestionar tareas (CRUD).
+Autenticación de usuarios para proteger las rutas de la API.
+
+
+Con **Task Manager** puedes:
+
+* Crear tareas con título y descripción
+* Cambiar el estado de cada tarea:
+
+  * Pendiente
+  * En Proceso
+  * Completada
+* Filtrar las tareas por estado
+* Eliminar tareas
+
+Toda la información se maneja mediante una API y estado global con Redux.
+
+## Tecnologías utilizadas
 
 ### Frontend
-- React
-- Vite
-- Axios
-- Tailwind CSS
 
-Descarga el zip del proyecto
-Descomprime el zip
-Abre la carpeta desde tu editor de código
+* React
+* Redux Toolkit
+* Axios
+* Tailwind CSS
 
-Entrar a la carpeta del proyecto:
+### Backend
 
-cd userList-CRUD
+* Node.js
+* Express
+* Middleware de validación
+* Base de datos en memoria 
 
-Instalar dependencias del backend:
+## Paso 1: Descargar el proyecto
 
+1. Descarga el proyecto como archivo **ZIP** desde el repositorio.
+2. Descomprime el archivo.
+3. Abre la carpeta del proyecto en tu editor de código (por ejemplo, Visual Studio Code).
+
+## Paso 2: Ejecutar el Backend
+
+1. Abre una terminal dentro de la carpeta del proyecto.
+2. Entra a la carpeta del backend:
+
+```bash
 cd backend
+```
+
+3. Instala las dependencias:
+
+```bash
 npm install
+```
 
-Ejecutar el servidor backend:
+4. Inicia el servidor:
 
-npm run dev
+```bash
+node app.js
+```
 
-El backend quedará corriendo en http://localhost:3000
+Si todo está correcto, verás el mensaje:
 
-Abrir otra terminal y entrar al frontend:
+```
+Server started on port 3000
+```
 
+El backend quedará ejecutándose en:
+
+```
+http://localhost:3000
+```
+
+---
+
+## Paso 3: Ejecutar el Frontend
+
+1. Abre **otra terminal**.
+2. Entra a la carpeta del frontend:
+
+```bash
 cd frontend
+```
+
+3. Instala las dependencias:
+
+```bash
 npm install
+```
 
-Ejecutar el frontend:
+4. Ejecuta la aplicación:
 
+```bash
 npm run dev
+```
 
-Abrir el navegador y entrar a:
+5. Abre el navegador y entra a:
 
+```
 http://localhost:5173
+```
 
-La aplicación mostrará la lista de usuarios obtenidos desde la API y permitirá buscarlos por nombre en tiempo real.
+---
 
-Nota: los datos se almacenan en memoria, por lo que se reinician cada vez que se apaga el servidor backend.
+## Cómo usar la aplicación
+
+1. Escribe un título y una descripción.
+2. Presiona **Agregar tarea**.
+3. La tarea aparecerá con estado **Pendiente**.
+4. Usa los botones para cambiar su estado.
+5. Filtra las tareas usando el selector superior.
+6. Elimina una tarea cuando ya no sea necesaria.
+
+
+## 🔐 Credenciales de prueba
+
+```
+Email: snorlax@admin.com
+Password: 123456
+```
+
+## Autora
+
+**Mercedes Flores Moreno**
+
