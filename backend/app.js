@@ -1,29 +1,32 @@
-// Importamos Express para crear el servidor
+// Importamos Express
 const express = require('express')
 
-// Importamos CORS para permitir peticiones desde el frontend y que la página no lo bloquee D:
+// Importamos CORS
 const cors = require('cors')
 
-// Importamos las rutas de usuarios
-const userRouter = require('./users.router')
+// Importamos rutas de tareas
+const taskRouter = require('./tasks/tasks.router')
+
+const authRouter = require('./auth/auth.router')
+
 
 const app = express()
 
-// Habilitamos CORS para evitar bloqueos entre frontend y backend
+// Middlewares globales
 app.use(cors())
-
 app.use(express.json())
 
-// Ruta básica para comprobar que el servidor está funcionando
+// Ruta de prueba
 app.get('/', (req, res) => {
-  res.json({ message: 'Server OK' })
+  res.json({ message: 'Task Manager API OK' })
 })
 
-// Usamos el router de usuarios bajo la ruta /api
-// Ejemplo: http://localhost:3000/api/users
-app.use('/api', userRouter)
+// Rutas principales
+// Ejemplo: http://localhost:3000/api/tasks
+app.use('/api', authRouter)
+app.use('/api', taskRouter)
 
-// servidor en el puerto 3000
+// Servidor
 app.listen(3000, () => {
-  console.log('Server started on port 3000')
+  console.log('Server running on http://localhost:3000')
 })
