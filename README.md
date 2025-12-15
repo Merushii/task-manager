@@ -143,7 +143,7 @@ http://localhost:5173
 ## 🔐 Credenciales de prueba
 
 ```
-Email: admin@test.com
+Email: snorlax@admin.com
 Password: 123456
 ```
 
